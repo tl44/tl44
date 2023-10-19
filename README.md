@@ -27,3 +27,30 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boutique en ligne</title>
+    <!-- Ajoutez des liens vers des fichiers CSS, JS ici -->
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Bienvenue dans notre boutique en ligne</h1>
+    <ul>
+    {% for produit in produits %}
+        <li>
+            <h2>{{ produit.nom }}</h2>
+            <p>{{ produit.description }}</p>
+            <p>Prix: {{ produit.prix }} €</p>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
